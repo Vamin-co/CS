@@ -1,0 +1,44 @@
+Person
+----------------------------
+- arrivalTime : int
+- name : String
+----------------------------
++ Person(arrivalTime : int, name : String)
++ getArrivalTime() : int
++ getName() : String
+
+CoffeeShop
+------------------------------------
+- customerQueue : Queue<Person>
+- results : LinkedList<String>
+- currentTime : int
+- nextDepartureTime : int
+- totalServed : int
+- totalWaitTime : int
++ SERVICE_TIME : int {static}
++ MAX_QUEUE_SIZE : int {static}
+------------------------------------
++ CoffeeShop()
++ processArrival(arrivalTime : int, name : String) : void
++ processDeparture() : void
++ finishUp() : void
++ getResults() : LinkedList<String>
++ getTotalServed() : int
++ getTotalWaitTime() : int
++ getCurrentTime() : int
++ setCurrentTime(currentTime : int) : void
++ getNextDepartureTime() : int
+
+CoffeeShopSimulation
+--------------------
+(no attributes)
+--------------------
++ main(args : String[]) : void {static}
++ run() : void
+- printResults(coffeeShop : CoffeeShop) : void
+
+Relationships
+-------------
+CoffeeShop <>-- Person: Aggregation (a coffee shop has zero or more people)
+CoffeeShopSimulation --> CoffeeShop: Dependency (the simulation uses the CoffeeShop)
+CoffeeShopSimulation --> Person: Dependency (the simulation uses the Person)
